@@ -1,0 +1,116 @@
+<div class="section-body">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="header-action">
+        <h1 class="page-title">Enseignents</h1>
+        <ol class="breadcrumb page-breadcrumb">
+          <li class="breadcrumb-item"><a href="#">FSTBM</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Enseignents
+          </li>
+        </ol>
+      </div>
+      <ul class="nav nav-tabs page-header-tab">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="tab"
+            [routerLink]="['/dashboard/ADMIN/enseignents/add']"
+            >Add</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="section-body mt-4">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6 col-md-4 col-sm-6">
+            <div class="input-group" style="padding-bottom: 4px;">
+              <input type="text" class="form-control" placeholder="cin:" [(ngModel)]="cin" name="cin"/>
+            </div>
+            <a
+              
+              class="btn btn-sm btn-primary btn-block"
+              title=""
+              (click)="searchByCIN()"
+              >Search</a
+            >
+          </div>
+          
+          <div class="col-lg-6 col-md-4 col-sm-6">
+            
+            <div class="input-group">
+                <select  class="form-control input-height" name="department" [(ngModel)]="departementName" name="departement">
+                  <option value="">Select...</option>
+                  
+                    <option *ngFor="let name of departementNames" [ngValue]="name" >{{name}}</option>
+                  
+                  
+                
+            </select>
+            </div>
+            <a
+              href="javascript:void(0);"
+              class="btn btn-sm btn-primary btn-block"
+              title=""
+              (click)="searchByDepartement()"
+              >select departement</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive card">
+      <table
+        class="table table-hover table-vcenter table-striped mb-0 text-nowrap"
+      >
+        <thead>
+          <tr>
+            <th>ID:</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>departement</th>
+            <th>CIN</th>
+            <th>email</th>
+            <th>adresse</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let enseignant of enseignants">
+            <td>{{enseignant.id}}</td>
+            <td>{{enseignant.nom}}</td>
+            <td>{{enseignant.prenom}}</td>
+            <td>{{enseignant.departement.nameDeparetement}}</td>
+            <td>{{enseignant.cin}}</td>
+            <td>{{enseignant.email}}</td>
+            <td><span class="font-16">{{enseignant.adresse}}
+            </span></td>
+            <td>
+              <button type="button" class="btn btn-icon btn-sm" title="View">
+                <i class="fa fa-eye"></i>
+              </button>
+              <button type="button" class="btn btn-icon btn-sm" title="Edit">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-icon btn-sm js-sweetalert"
+                title="Delete"
+                data-type="confirm"
+                (click)="deleteEnseignat(enseignant.id)"
+              >
+                <i class="fa fa-trash-o text-danger"></i>
+              </button>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="section-body">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="header-action">
+        <h1 class="page-title">Examens</h1>
+        <ol class="breadcrumb page-breadcrumb">
+          <li class="breadcrumb-item"><a href="#">FSTBM</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Examens</li>
+        </ol>
+      </div>
+      <ul class="nav nav-tabs page-header-tab">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="tab"
+            [routerLink]="['/dashboard/ADMIN/examens/add']"
+            >Add</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="section-body mt-4">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="searchFormGroup" >
+        <div class="row">
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="input-group">
+              <input type="text" class="form-control" formControlName="keyword1" placeholder="Module Name" />
+            </div>
+          </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                <select class="form-control input-height" name="department"  formControlName="keyword2">
+                  <option value="">None</option>
+                  <option value="SEMESTRE1">S1</option>
+                  <option value="SEMESTRE2">S2</option>
+                  <option value="SEMESTRE3">S3</option>
+                  <option value="SEMESTRE4">S4</option>
+                   <option value="SEMESTRE5">S5</option>
+                  <option value="SEMESTRE6">S6</option>
+                </select>
+              </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a
+              href="javascript:void(0);"
+              class="btn btn-sm btn-primary btn-block"
+              title=""
+              (click)="gotolist()"
+              >Search</a
+            >
+          </div>
+
+        </div>
+        </form>
+      </div>
+    </div>
+    <div class="table-responsive card">
+      <table
+        class="table table-hover table-vcenter table-striped mb-0 text-nowrap"
+      >
+        <thead>
+          <tr>
+            <th>ID:</th>
+            <th>Type</th>
+            <th>Date Examen</th>
+            <th>Module</th>
+            <th>Semestre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let e of examenList">
+          <td>{{e.id}}</td>
+        <td>{{e.type}}</td>
+        <td>{{e.dateExam}}</td>
+        <td>{{e.module.moduleName}}</td>
+          <td>{{e.module.moduleSemestre}}</td>
+
+
+            <td>
+              <button type="button" class="btn btn-icon btn-sm" title="View">
+                <i class="fa fa-eye"></i>
+              </button>
+              <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="onEditExamen(e.id)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-icon btn-sm js-sweetalert"
+                title="Delete"
+                data-type="confirm"
+                (click)="handelDeleteExamen(e)"
+              >
+                <i class="fa fa-trash-o text-danger"></i>
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

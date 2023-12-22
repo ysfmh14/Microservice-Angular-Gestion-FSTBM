@@ -1,0 +1,124 @@
+<div class="section-body">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="header-action">
+        <h1 class="page-title">Enseignents</h1>
+        <ol class="breadcrumb page-breadcrumb">
+          <li class="breadcrumb-item">
+            <a [routerLink]="['/dashboard/ADMIN/']">FSTBM</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a [routerLink]="['/dashboard/ADMIN/enseignents']">Enseignents</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Ajout / Modification
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section-body mt-4">
+  <div class="container-fluid">
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Les informations d'enseignents</h3>
+          </div>
+          <form class="card-body" (ngSubmit)="saveEnseignat()">
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label"
+                >Nom <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="nom"
+                  name="nom"
+                  [(ngModel)]="enseignant.nom"
+                />
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label"
+                >Prénom <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="Prénom"  name="prenom"
+                [(ngModel)]="enseignant.prenom" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label"
+                >CIN <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <input type="text" class="form-control"  name="CIN"
+                [(ngModel)]="enseignant.cin" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">Email</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control"  name="Email"
+                [(ngModel)]="enseignant.email" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label"
+                >Password <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="password"
+                  name="password"
+                  [(ngModel)]="enseignant.password"
+                />
+              </div>
+            </div>
+            
+
+            
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">
+                departements <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <select class="form-control input-height" name="department" [(ngModel)]="enseignant.departement.nameDeparetement">
+                  <option value="">Select...</option>
+                  
+                    <option *ngFor="let name of departementNames" [ngValue]="name" value="Category 1">{{name}}</option>
+                  
+                  
+                
+            </select>
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label"
+                >Address <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <input type="text" class="form-control" [(ngModel)]="enseignant.adresse" name="adresse"/>
+              </div>
+            </div>
+           
+            <div class="col-sm-12 action-buttons">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="cancel" class="btn btn-outline-secondary" 
+              [routerLink]="['/dashboard/ADMIN/enseignents']">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

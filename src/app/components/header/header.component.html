@@ -1,0 +1,93 @@
+<div class="headerCss">
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-8 col-12 d-flex flex-wrap">
+                    <p class="d-flex me-4 mb-0">
+                        <i class="bi-ge me-2"></i>
+                        Université Sultan Moulay Slimane
+                    </p>
+
+                    <p class="d-flex mb-0">
+                        <i class="fas fa-envelope me-2" style="position: relative;bottom: -10%;"></i>
+
+                        <a href="mailto:fstbm@usms.ma">
+                            fstbm@usms.ma
+                        </a>
+                    </p>
+
+                    <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+                        <ul class="social-icon">
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-twitter"></a>
+                            </li>
+        
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-facebook"></a>
+                            </li>
+        
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-instagram"></a>
+                            </li>
+        
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-youtube"></a>
+                            </li>
+        
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-whatsapp"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg  shadow-lg">
+        <div class="container">
+            <a class="navbar-brand" [routerLink]="['']">
+                <img src="../../../assets/images/logo.png" class="logo img-fluid" alt="Kind Heart Charity">
+                <span>
+                    Faculté des Sciences et Techniques
+
+                  
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" [routerLink]="['']">Accueil</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" [routerLink]="['']">A propos</a>
+                    </li>  
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" [routerLink]="['/departement']">Départements</a>
+                    </li>                    
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" [routerLink]="['']">Formations</a>
+                    </li>
+                    <li class="nav-item ms-3" >
+                        <a class="nav-link custom-btn custom-border-btn btn" *ngIf="!isLoggedIn" [routerLink]="['/login']">se connecter</a>
+                        <a class="nav-link custom-btn custom-border-btn btn" *ngIf="isLoggedIn" (click)="dashboard(scope)">espace {{scope}}</a>
+
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    
